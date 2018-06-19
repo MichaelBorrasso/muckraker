@@ -2,7 +2,7 @@
   "name": "muckraker",
   "version": "1.0.0",
   "description": "news scraper",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,11 +17,15 @@
   },
   "homepage": "https://github.com/MichaelBorrasso/muckraker#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
+    "cli": "^1.0.1",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^5.1.4",
+    "heroku": "^7.0.98",
+    "mongoose": "^5.1.5",
+    "morgan": "^1.9.0",
     "request": "^2.87.0"
   }
 }
