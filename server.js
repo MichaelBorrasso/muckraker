@@ -47,20 +47,24 @@ app.get("/scrape", function(req, res) {
 
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
-        .children("")
+        .children("a")
         .text();
       result.link = $(this)
         .children("a")
         .attr("href");
 
+      console.log('title:', result.title);
+      console.log('link:', result.link);
 
-      // Create a new Headline using the `result` object built from scraping
+      // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
+          console.log('success');
           // View the added result in the console
           console.log(dbArticle);
         })
         .catch(function(err) {
+          console.log('error');
           // If an error occurred, send it to the client
           return res.json(err);
         });
@@ -71,11 +75,11 @@ app.get("/scrape", function(req, res) {
   });
 });
 
-// Route for getting all Headlines from the db
+// Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
   // Grab every document in the Articles collection
   db.Article.find({})
-    .then(function(dbheadline) {
+    .then(function(dbArticle) {
       // If we were able to successfully find Articles, send them back to the client
       res.json(dbArticle);
     })
