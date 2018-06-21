@@ -14,8 +14,6 @@ var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
-app.listen(PORT, function() {
-
 // Initialize Express
 var app = express();
 
@@ -130,4 +128,4 @@ app.post("/articles/:id", function(req, res) {
 // Start the server
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
-});
+})
